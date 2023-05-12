@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Trending from 'components/Trending'
 import * as API from 'api'
+
 const Home =()=>{
    const [trending, setTrending] = useState([])
    

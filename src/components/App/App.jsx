@@ -4,32 +4,25 @@ import Home from "pages/Home/Home";
 import MovieDetails from "pages/MovieDetails/MovieDetails";
 import Movies from "pages/Movies/Movies";
 import NotFound from "pages/NotFound/NotFound";
-import { NavLink, Route, Routes } from "react-router-dom";
+import {  Route, Routes } from "react-router-dom";
+import { Suspense } from "react";
+import { Loader } from "components/Loader/Loader";
+import SharedLayout from "components/SharedLayout/SharedLayout";
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/movies">Movies</NavLink>
-      </nav>
+    <Suspense fallback={<Loader/>}>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/movies" element={<Movies/>} />       
-        <Route path="/movies/:moviesId" element={<MovieDetails />}>
-          <Route path="cast" element={<Cast />} />
-          <Route path="reviews" element={<Reviews />} />
+        <Route path="/" element={<SharedLayout/>}> 
+          <Route index element={<Home/>} />
+          <Route path="movies" element={<Movies/>} />       
+          <Route path="movies/:moviesId" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
         </Route>
-        <Route path="*" element={<NotFound />} />
       </Routes>
-    </div>
+    </Suspense>
   );
 };
