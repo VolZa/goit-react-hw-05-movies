@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import Trending from 'components/Trending'
 import * as API from 'api'
+import { Loader } from 'components/Loader/Loader';
 
 const Home =()=>{
    const [trending, setTrending] = useState([])
-   
+   const [isLoading, setIsLoading] = useState(true);
+   const [error, setError] = useState(false);
    useEffect(()=>{
       const fetchTrending = async ()=>{
          try { 
@@ -13,15 +15,22 @@ const Home =()=>{
             return;
          }
          catch (error) {
-            console.log(error)
+            setError(true);
          }
-      };
+         finally {
+            setIsLoading(false)
+         };
+      }
       fetchTrending();
    },[]);
 
    return (
       <>
-         <Trending items={trending}/>
+         {isLoading  ? (<Loader/>)
+            : error ? (
+               <p>The file could not be downloaded. Please try again later.</p>)
+               : ( <Trending items={trending}/>)
+      }        
       </>
    );   
 }
