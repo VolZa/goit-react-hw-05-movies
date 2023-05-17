@@ -23,8 +23,7 @@ const MovieDetails = () => {
       try {
         setIsLoading(true);
         const result = await fetchMovieById(id);
-      console.log("MovieDetails  useEffect",result);
-        setMovie(result);
+
         setMovie(result);
         setIsLoading(false);
       } catch (error) {
