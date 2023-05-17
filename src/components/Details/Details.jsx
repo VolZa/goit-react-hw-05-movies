@@ -1,4 +1,4 @@
-const Details = ({movie}) => {
+const Details = ({movie, isFetch}) => {
    if (movie) {
       return (
          <div>

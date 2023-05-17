@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://api.themoviedb.org/3';
+const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = '63646d6cb2d06c3444ba8e63d051cd70';
 
 axios.defaults.baseURL = BASE_URL;
 
 //популярні фільми
-export const searchTrending = async () => {
-   const result = await axios.get(`/trending/all/day?api_key=${API_KEY}`);
+export const searchTrending = async (page) => {
+   const result = await axios.get(`/trending/all/day?api_key=${API_KEY}&page=${page}`);
    return result.data;
  };
 
@@ -15,6 +15,16 @@ export const searchTrending = async () => {
   const result = await axios.get(`/movie/${id}?api_key=${API_KEY}`);
   return result.data;
 };
+export const fetchMovieById = async id => {
+  const options = {
+    params: {
+      api_key: API_KEY,
+    },
+  };
+  const { data } = await axios(`/movie/${id}`, options);
+  return data;
+};
+
 
 //отримання списку фільмів за запитом 
  export const searchTitle = async (title) => {
@@ -22,9 +32,9 @@ export const searchTrending = async () => {
   return result.data;
  };
 
- export const getReviews = async movieId => {
+ export const getReviews = async id => {
   const result = await axios.get(
-    `/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+    `/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
   );
   return result.data;
 };

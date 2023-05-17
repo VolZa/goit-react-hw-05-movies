@@ -2,34 +2,45 @@ import { useEffect, useState } from 'react';
 import Trending from 'components/Trending'
 import * as API from 'api'
 import { Loader } from 'components/Loader/Loader';
+import { useSearchParams } from 'react-router-dom';
 
 const Home =()=>{
    const [trending, setTrending] = useState([])
-   const [isLoading, setIsLoading] = useState(true);
+   const [isLoading, setIsLoading] = useState(false);
    const [error, setError] = useState(false);
+   const [searchParams] = useSearchParams();
+   const page = Number(searchParams.get('page')) || 1;
    useEffect(()=>{
-      const fetchTrending = async ()=>{
+      const fetchTrending = async page=>{
          try { 
-            const response = await API.searchTrending();
+            setIsLoading(true);
+            const response = await API.searchTrending(page);
             setTrending(response.results);
-            return;
+            // return;
          }
          catch (error) {
             setError(true);
+            console.log("На сторінці Home fetchTrending error: ",error);
          }
          finally {
             setIsLoading(false)
          };
       }
-      fetchTrending();
-   },[]);
+      fetchTrending(page);
+   },[page]);
+
 
    return (
       <>
          {isLoading  ? (<Loader/>)
             : error ? (
                <p>The file could not be downloaded. Please try again later.</p>)
-               : ( <Trending items={trending}/>)
+               : (
+               <>
+                  <h2>Trending</h2>
+                  <Trending items={trending}/>
+               </>  
+               )
       }        
       </>
    );   
