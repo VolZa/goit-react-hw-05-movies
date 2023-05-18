@@ -16,7 +16,7 @@ const SearchMovie = ({ title, onChange, onSubmit }) => {
                />
                <button type="submit">Search</button>
             </form>
-            <h1>Search Movie</h1>
+            
         </Wrapper>
     )
 }

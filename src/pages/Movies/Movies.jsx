@@ -5,9 +5,9 @@ import { useSearchParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
 import * as API from 'api';
-import { Container } from "components/App/App.styled";
 import SearchMovie from 'components/SearchMovie/SearchMovie';
 import Trending from 'components/Trending/Trending';
+import { Container } from './Movies.styled';
 
 
 const errorMessage = () => toast.error('Something went wrong. Please try again later.');

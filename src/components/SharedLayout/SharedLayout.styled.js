@@ -28,7 +28,3 @@ export const Container = styled.div`
    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 `;
 
-export const Logo = styled.p`
-  font-weight: 700;
-  margin: 0;
-`;
