@@ -24,7 +24,6 @@ const MovieDetails = () => {
       try {
         setIsLoading(true);
         const result = await fetchMovieById(id);
-
         setMovie(result);
         setIsLoading(false);
       } catch (error) {
@@ -32,12 +31,8 @@ const MovieDetails = () => {
         console.error(error);
       }
     };
-
     getMovieInfo(movieId);
-   //  console.log("movieId= ",movieId);
   }, [movieId]);
-   // console.log("MovieDetails location= ",location);
-   // console.log(location?.state?.from ?? '/')
    
    return (
       <main>

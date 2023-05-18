@@ -8,7 +8,7 @@ const Details = ({movie, isFetch}) => {
       release_date,
       original_title,
       overview,
-      // genres,
+      genres,
       vote_average,
     } = movie;
     const userScore = Math.ceil(vote_average) *10;
@@ -32,8 +32,13 @@ const Details = ({movie, isFetch}) => {
                         <p>User Score: {userScore}%</p>
                         <h2>Overview</h2>
                         <p>{overview}</p>
-                        {/* <h2>Genres</h2> */}
-                        {/* <p>{genres.map(({ name }) => name).join(', ')}</p> */}
+
+                        {genres && genres.length > 0 && (
+                        <div>
+                           <h2>Genres</h2>
+                           {genres.map(genre => genre.name).join(', ')}
+                        </div>
+                        )}
                      </div>
                   </div>
                </Content>
