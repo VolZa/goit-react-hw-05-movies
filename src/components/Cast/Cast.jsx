@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import * as API from '../../api';
 import { Loader } from "components/Loader/Loader";
 import { ERROR_MSG } from "constants/constants";
+import { List } from "./Cast.styled";
 
 const Cast = () => {
    const [cast, setCast] = useState([]);
@@ -34,7 +35,7 @@ const Cast = () => {
          ) : (
             <section>
                <h2>Cast</h2>
-               <ul>
+               <List>
                   {!!cast.length ? (
                      cast.map(({ original_name, profile_path, character }, idx) => (
                         <li key={idx}>
@@ -47,7 +48,7 @@ const Cast = () => {
                      ))
                      ) : ( <p>Actors not found.</p>)}
 
-               </ul>
+               </List>
             </section>
          ) 
          }
