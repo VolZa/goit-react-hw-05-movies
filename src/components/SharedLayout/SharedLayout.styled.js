@@ -3,22 +3,13 @@ import { NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 8px 0;
-  margin-bottom: 16px;
-  border-bottom: 1px solid black;
 
-  > nav {
-    display: flex;
   }
 `;
 
 export const Nav = styled.nav`
   display: flex;
-  justify-content: space-between;
   gap: 12px;
 `;
 export const Link = styled(NavLink)`
@@ -30,9 +21,11 @@ export const Link = styled(NavLink)`
   }
 `;
 export const Container = styled.div`
-   max-width: 960px;
+  display: flex;
    margin: 0 auto;
-   padding: 0 16px;
+   padding: 0 20px;
+   height: 60px;
+   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 `;
 
 export const Logo = styled.p`

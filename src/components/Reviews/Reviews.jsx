@@ -30,14 +30,23 @@ const Reviews = () => {
     fetchReviews();
   }, [movieId]);
 
-   console.log(viewing, isLoading, isLoadError);
-
   return (
     <Wrapper>
-      <div>Revievs</div>
       {isLoading && <Loader />}
       {isLoadError && <p>{ERROR_MSG}</p>}
-      <div>Rev Rev Revievs</div>
+      <h2>Revievs</h2>
+      <ul>
+        {!!viewing.length ? (
+                viewing.map(({ author, content }) => (
+                  <li key={author}>
+                    <p>{author}</p>
+                    <p>{content}</p>
+                  </li>
+                ))
+              ) : (
+                <li>We don't have any review to this movie</li>
+              )}
+      </ul>
     </Wrapper>
   )
 }

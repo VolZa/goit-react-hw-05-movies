@@ -48,7 +48,6 @@ const Movies = () => {
    };
    return (
       <Container>
-         <div>Сторінка Movies with filmId - </div>
          <SearchMovie title={title} onChange={onChange} onSubmit={onSubmit} />
          {movies.length > 0 ? <Trending items={movies}/> : <div>Nothing was found for this request. Create another one.</div>}
          <ToastContainer />

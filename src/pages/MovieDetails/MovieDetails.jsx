@@ -33,7 +33,7 @@ const MovieDetails = () => {
     };
 
     getMovieInfo(movieId);
-    console.log("moviedId= ",movieId);
+   //  console.log("movieId= ",movieId);
   }, [movieId]);
    // console.log("MovieDetails location= ",location);
    // console.log(location?.state?.from ?? '/')
@@ -52,14 +52,6 @@ const MovieDetails = () => {
                         Back
                      </button>
                   </Link>
-
-                  {/* {status !== 'Released' ? (
-                     <p>
-                        Not released!
-                     </p>
-                  ) */}
-                  {/* :  */}
-                  {/* ( */}
                      <>
                         <Details movie={movie}/>
                         <hr/>

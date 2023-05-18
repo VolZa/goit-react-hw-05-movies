@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 const Trending = ({items}) => {
    const location = useLocation();
-   console.log("Trending, location = ",location);
 
    return (
       <>

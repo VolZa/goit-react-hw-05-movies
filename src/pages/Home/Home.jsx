@@ -37,7 +37,7 @@ const Home =()=>{
                <p>The file could not be downloaded. Please try again later.</p>)
                : (
                <>
-                  <h2>Trending</h2>
+                  <h2>Trending today</h2>
                   <Trending items={trending}/>
                </>  
                )
