@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -7,4 +8,6 @@ export const Container = styled.div`
    padding: 0 20px;
 `;
 
-// export
+export const BtnLink = styled(Link)`
+   margin: 20px 20px 20px 0;
+`;

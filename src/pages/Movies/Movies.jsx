@@ -43,7 +43,7 @@ const Movies = () => {
    }
    // const {filmId} = useParams();
    const onChange = e => {
-      console.log('onChange спрацював: ', e.target.value);
+      // console.log('onChange спрацював: ', e.target.value);
       setTitle(e.target.value);
    };
    return (

@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 
 // import * as API from 'api';
 import { fetchMovieById } from 'api';
@@ -7,7 +7,7 @@ import { fetchMovieById } from 'api';
 import Details from 'components/Details/Details';
 import { Loader } from 'components/Loader/Loader';
 import { ERROR_MSG } from 'constants/constants';
-import { Container } from './MovieDetails.styled';
+import { BtnLink, Container } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
@@ -48,21 +48,26 @@ const MovieDetails = () => {
                <Loader />
             ) : (
                <> 
-                  <Link to={current}>
+                  <BtnLink to={current}>
                      <button type="button" >
                         Back
                      </button>
-                  </Link>
+                  </BtnLink>
                      <>
                         <Details movie={movie}/>
-                        {/* <hr/> */}
                         <div> 
-                           <Link to="cast" state={{from: location?.state?.from ?? '/'}}>
+                           <BtnLink to="cast" state={{from: location?.state?.from ?? '/'}}>
+                           <button type="button" >
                               Cast
-                           </Link>
-                           <Link to="reviews" state={{from: location?.state?.from ?? '/'}}>
+                           </button>
+                              
+                           </BtnLink>
+                           <BtnLink to="reviews" state={{from: location?.state?.from ?? '/'}}>
+                           <button type="button" >
                               Revievs
-                           </Link>
+                           </button>
+                              
+                           </BtnLink>
                         </div>
 
                         <Suspense fallback={<Loader />}>
