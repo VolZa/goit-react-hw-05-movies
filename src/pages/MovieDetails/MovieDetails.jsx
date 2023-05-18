@@ -57,16 +57,14 @@ const MovieDetails = () => {
                         <Details movie={movie}/>
                         <div> 
                            <BtnLink to="cast" state={{from: location?.state?.from ?? '/'}}>
-                           <button type="button" >
-                              Cast
-                           </button>
-                              
+                              <button type="button" >
+                                 Cast
+                              </button>
                            </BtnLink>
                            <BtnLink to="reviews" state={{from: location?.state?.from ?? '/'}}>
-                           <button type="button" >
-                              Revievs
-                           </button>
-                              
+                              <button type="button" >
+                                 Revievs
+                              </button>
                            </BtnLink>
                         </div>
 

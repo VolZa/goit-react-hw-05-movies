@@ -1,5 +1,6 @@
 import { Loader } from 'components/Loader/Loader';
 import PropTypes from 'prop-types';
+import { Content } from './Details.styled';
 const Details = ({movie, isFetch}) => {
    if (!movie) return;
    const {
@@ -22,7 +23,7 @@ const Details = ({movie, isFetch}) => {
             <Loader/>   
          ) : (
             <section>
-               <div >
+               <Content >
                   <img src={url} alt={original_title} width={400} heigh={600}/>
                   <div>
                      <div>
@@ -35,11 +36,9 @@ const Details = ({movie, isFetch}) => {
                         {/* <p>{genres.map(({ name }) => name).join(', ')}</p> */}
                      </div>
                   </div>
-               </div>
+               </Content>
             </section>  
          )}
-         <h2>{movie.title}</h2>
-         <p>{movie.overview}</p>
       </>
    )
    

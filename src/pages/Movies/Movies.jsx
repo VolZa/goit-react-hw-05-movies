@@ -36,7 +36,6 @@ const Movies = () => {
    const onSubmit = (e) => {
       e.preventDefault();
       if (title.trim()) {
-         console.log(title);
          const params = title === ''? {} : { title };
          setSearchParams(params);
       } else {errorMessage();}
