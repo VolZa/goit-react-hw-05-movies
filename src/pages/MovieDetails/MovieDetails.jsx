@@ -3,10 +3,11 @@ import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 
 // import * as API from 'api';
 import { fetchMovieById } from 'api';
-import { Container } from 'components/App/App.styled';
+// import { Container } from 'components/App/App.styled';
 import Details from 'components/Details/Details';
 import { Loader } from 'components/Loader/Loader';
 import { ERROR_MSG } from 'constants/constants';
+import { Container } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
@@ -54,7 +55,7 @@ const MovieDetails = () => {
                   </Link>
                      <>
                         <Details movie={movie}/>
-                        <hr/>
+                        {/* <hr/> */}
                         <div> 
                            <Link to="cast" state={{from: location?.state?.from ?? '/'}}>
                               Cast
