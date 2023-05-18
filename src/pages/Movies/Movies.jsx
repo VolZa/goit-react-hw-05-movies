@@ -40,18 +40,18 @@ const Movies = () => {
          setSearchParams(params);
       } else {errorMessage();}
    }
-   // const {filmId} = useParams();
+
    const onChange = e => {
-      // console.log('onChange спрацював: ', e.target.value);
       setTitle(e.target.value);
    };
    return (
       <Container>
          <SearchMovie title={title} onChange={onChange} onSubmit={onSubmit} />
-         {movies.length > 0 ? <Trending items={movies}/> : <div>Nothing was found for this request. Create another one.</div>}
-         <ToastContainer />
+         {title.trim() && <Trending items={movies}/> }
+         <ToastContainer icon={false} />
       </Container>
    )
 };
 
 export default Movies;
+
